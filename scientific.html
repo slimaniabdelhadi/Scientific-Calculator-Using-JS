@@ -1,174 +1,875 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html  >
 <head>
+  <title>calculiter </title>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+<!-- bootstrap -->
 <style>
+  @charset "UTF-8";
+
+ :focus
+:root {
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #e9ecef;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #6c757d;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #343a40;
+  --bs-gray-900: #212529;
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  --bs-primary-rgb: 13, 110, 253;
+  --bs-secondary-rgb: 108, 117, 125;
+  --bs-success-rgb: 25, 135, 84;
+  --bs-info-rgb: 13, 202, 240;
+  --bs-warning-rgb: 255, 193, 7;
+  --bs-danger-rgb: 220, 53, 69;
+  --bs-light-rgb: 248, 249, 250;
+  --bs-dark-rgb: 33, 37, 41;
+  --bs-white-rgb: 255, 255, 255;
+  --bs-black-rgb: 0, 0, 0;
+  --bs-body-color-rgb: 33, 37, 41;
+  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+   "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-size: 1rem;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.5;
+  --bs-body-color: #212529;
+  --bs-body-bg: #fff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
-    margin: 0;
-    background: radial-gradient(#1e8fa5,#08506b, black)no-repeat fixed;
-    padding: 50px 0px;
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  color: var(--bs-body-color);
+  text-align: var(--bs-body-text-align);
+  background-color: var(--bs-body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-button.clear {
-    background: #FF5722;
-    color: #fff;
+
+a {
+  color: #0d6efd;
+  text-decoration: underline;
 }
-table {
-    background: black;
-    padding: 7px 5px;
-    border: 6px solid #00000000;
-    text-align: center;
-    padding-bottom: 0px;
-    box-shadow: 0px 0px 27px #0d5569;
-    border-radius: 10px;
-    margin-top: 90px;
+a:hover {
+  color: #0a58ca;
 }
-button.equal {
-    width: 88%;
-    background: #210b04;
+
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
 }
-button.equal:hover{
-	background: #000803;
+sup {
+    position: relative;
+    vertical-align: baseline;
+    top: -20%;
+    margin: 0% -3% 0% 2%;
 }
-input[type="text"] {
-    width: 450px;
-    height: 81px;
-    border: 1px solid #000;
-    padding: 10px 20px;
-    font-size: 29px;
-    background: #000000;
-    font-weight: bold;
-    margin-bottom: 25px;
-    font-family: cursive;
-    margin-top: 10px;
-    color: #dedede;
-    border-bottom: 2px solid #cc4014;
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
 }
-button {
-    padding: 10px 20px;
-    width: 100px;
-    height: 60px;
-    margin-bottom: 20px;
-    font-size: 26px;
-    font-weight: bold;
-    font-family: cursive;
-    background: #000803;
-    border: none;
-    color: #d23200;
-    border-radius: 6px;
-    cursor: pointer;
+button:not(:disabled),
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled) {
+  cursor: pointer;
 }
-button:hover{
-	background: #210b04;
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out,
+   background-color 0.15s ease-in-out,
+   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+.btn:hover {
+  color: #212529;
+}
+.btn-check:focus + .btn, .btn:focus {
+   outline: none;
+ /* box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); */
+}
+/* .btn:disabled, .btn.disabled, fieldset:disabled .btn {
+  pointer-events: none;
+  opacity: 0.65;
+} */
+
+.btn-primary {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+/* .btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5); 
+} */
+.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary,
+ .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus,
+ .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
+}
+
+.btn-primary:disabled, .btn-primary.disabled {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+.btn-success {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+}
+.btn-success:hover {
+  color: #fff;
+  background-color: #157347;
+  border-color: #146c43;
+}
+
+/* .btn-check:checked + .btn-success, .btn-check:active + .btn-success,
+ .btn-success:active, .btn-success.active, .show > .btn-success.dropdown-toggle {
+  color: #fff;
+  background-color: #146c43;
+  border-color: #13653f;
+}*/
+.btn-check:checked + .btn-success:focus, .btn-check:active +
+ .btn-success:focus, .btn-success:active:focus, .btn-success.active:focus,
+  .show > .btn-success.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(60, 153, 110, 0.5);
+} 
+.btn-success:disabled, .btn-success.disabled {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+}
+
+.btn-info {
+  color: #000;
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+}
+.btn-info:hover {
+  color: #000;
+  background-color: #31d2f2;
+  border-color: #25cff2;
+}
+/*  .btn-check:focus + .btn-info, .btn-info:focus {
+  color: #000;
+  background-color: #31d2f2;
+  border-color: #25cff2;
+  box-shadow: 0 0 0 0.25rem rgba(11, 172, 204, 0.5);
+}  */
+.btn-check:checked + .btn-info, .btn-check:active + .btn-info, .btn-info:active,
+ .btn-info.active, .show > .btn-info.dropdown-toggle {
+  color: #000;
+  background-color: #3dd5f3;
+  border-color: #25cff2;
+}
+.btn-check:checked + .btn-info:focus, .btn-check:active + .btn-info:focus,
+ .btn-info:active:focus, .btn-info.active:focus, .show > .btn-info.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(11, 172, 204, 0.5);
+}
+.btn-info:disabled, .btn-info.disabled {
+  color: #000;
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+}
+ 
+
+
+.card {
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #ddd;
+    background-clip: border-box;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+}
+
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+}
+.fs-5 {
+  font-size: 1.25rem !important;
 }
 </style>
+<!-- style.css -->
+<style>
+
+/* ///////// stayle equation */
+/* ///////////////////////// */
+
+* ,body, html{
+    margin: 0;
+    padding: 0;
+   
+ }
+ html{
+   height: 100%;
+ }
+/* divs */
+.globalContiner{
+    width: auto;
+    background: #ddd;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.func{
+ 
+    margin-top: -32px; 
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(4,45px);
+    column-gap: 2%;
+    row-gap: 0%;
+}
+.continent{
+    display: grid;
+    grid-template-columns: 2.1fr 2.1fr 2.1fr 1.85fr 1.85fr;
+    column-gap: 3%;
+    row-gap: 4%;
+    margin-bottom: 20px;
+
+}
+
+
+/* //////////////// */
+
+/* /// input */
+.input {
+  box-sizing: border-box;
+    font: 400 13.3333px Arial;
+    font-size: 30px;
+    background-color: floralwhite !important;
+    width: 99.8%;
+    margin:22px 0% -10px 0%;
+    padding-left: 18px;
+    border-radius: 10px;
+}
+.input ,.result ,button :focus{
+    outline-width: inherit;
+    outline: none;
+    
+}
+.result{
+    display: inline-block;
+    font-size: 150%;
+    margin: 10px 0px 39px 4px;
+    width: 70%;
+    padding: 1.5% 2% 2% 2%;
+    border-radius: 7px;
+    background-color: floralwhite;
+}
+
+@media (max-width: 900px){
+    .input{font-size: 25px;margin-top: 25px;}
+}
+
+/* ///// btn\\\\\\ */
+.drg{
+    margin-left: 5px;
+   
+    position: absolute;
+    font-size: small;
+    background: floralwhite;
+    padding: 3px;
+    /* border: black; */
+    border-width: medium;
+    border-radius: 6%;
+}
+
+.mimoir{
+    width: 10px;
+    font-size: small;
+    background-color: floralwhite;
+    color: floralwhite;
+    margin-top: 15%;;
+    margin-left: 3px;
+    position: absolute;
+}
+
+.fsup{
+    top: -10%;
+  margin: 0% -3% 0% -4%;
+}
+
+
+
+.btn-ver{
+
+    background: #198743;
+    transition: 0.3s;
+    
+}
+
+.Cbtn{
+    height: 35px;
+    padding: 5%;
+}
+.symbolBtn , .btn-ver{
+    height: 100%;
+    font-size: 100%;
+    padding: 10%;
+}
+.btn-ver:active{
+    
+
+    background: #198743 !important;
+}
+
+.HidBtn{
+    margin: -36px 20px 26px 39px;
+}
+
+.btn-primary2.disabled{
+    background-color:#ff5a61 ;
+    border-color: #ee3c3e;
+}
+.btn-primary2:hover{
+    background-color: rgb(248, 61, 61) ;
+    border-color: rgb(254, 34, 34);
+}
+
+</style>
+
+  <style>
+
+    #background {
+      min-height:100vh;
+      text-align: center;
+      
+      background-size:cover;
+      background-position:center center;
+      background-repeat: no-repeat;
+      
+    }
+    
+    #inner-wrapper{
+        
+      width:100%;
+      min-height: 100vh;
+      background-color: white;
+      text-align:center;
+      
+      color:white;
+    }
+    
+    .page{
+      background-color: white;
+      width:100%;
+      height:100%;
+      margin-top: 30px;
+    }
+
+
+    .register_form{
+      max-width:450px!important;
+      margin:10px auto;
+      color:black;
+
+      text-align: left;
+    }
+   
+</style>
+    
 </head>
+<body style="background-color:white">
+  <main role="main" id="background" >
+  <div id="inner-wrapper">
+  <div class="page" data-page-nbr="1">
+  
+  <div class="card register_form">
+    
+    <div class="card-body " style=" background-color: rgb(230, 225, 225);">
+      
+        
+  <div id="cart">
+    <p id="drg" class="drg">deg</p>
+    <p id="mimoir" class="mimoir">M</p>
+    <textarea id="fichour" type="tel" aria-atomic="false"    required  onclick="paste()" readonly 
+      class="input" rows = '3' spellcheck="false" placeholder="0"></textarea>
+      
+    
+    
+    
+    <textarea id="result"   rows="2" onclick="copier()"readonly
+      class="result" spellcheck="false" ></textarea>
+   
+    
+    <div id="fdiv" class="func">
+    </div>
+
+    
+    <div id="divNum" class="continent">
+  </div>
+
+  </div>
+  </div>
+  </main>
+      <script type="text/javascript" >
+      /*////  variables */
+var ongl = 0.017453292519943 , mim='' ,fichour =gebi('fichour'),
+    result = gebi('result'), 
+    div1= gebi('fdiv'),div2 = gebi('divNum'),
+
+    //classes
+    c1 = ' btn-primary Cbtn',c2 =' btn-success btn-ver',c3= ' btn-info symbolBtn',
+
+    // functions  
+    f1 ='add('   , f2='addFunc(', f3='adCar(',   f4='addSymbF(' , f5='addSymbP(', f6='retour()', f7='clearing()',
+    f8='drgFun()', f9='save()'  , f10='retSive()',f11='addSave()', f12='upRes()',
+
+    //arrays
+    //array function
+     arF =[ f2+"'sin(')",f2+"'cos(')"   ,f2+"'tan(')"  ,f8          ,f3+"'/100')"  ,f2+"'abs(')",
+            f2+"'asin(')",f2+"'acos(')" ,f2+"'atan(')" ,f2+"'e^(')" ,f2+"'Ln(')"   ,f2+"'log(')",
+            f2+"'sinh(')",f2+"'cosh(')" ,f2+"'tanh(')" ,f2+"'(')"   ,f3+"')')"     , f6,
+            f2+"'3.141592653589793')"   ,f3+"'^')"     ,f2+"'√(')"  ,f2+"'1/')"   ,f3+"'²')"     ,f7,
+            f1+"'7')",f1+"'8')" ,f1+"'9')" ,f4+"'/')", f9,
+            f1+"'4')",f1+"'5')" ,f1+"'6')" ,f4+"'×')", f10,
+            f1+"'1')",f1+"'2')" ,f1+"'3')" ,f5+"'-')", f11,
+            f1+"'0')",f2+"'(-')",f4+"',')" ,f5+"'+')" ,f12  ],
+            
+    //arry classes        
+    arCl =[...Array(23).keys()],//fichour.value = arCl
 
 
-<body>
-<form name="calcul">
-<table align="center">
-
-	<tr>
-		<td colspan="4"> <input type="text" name="result" placeholder="0" style="text-align:right"> </td>
-	</tr>
-
-	<tr>
-		<td><button type="button" value="sin" onclick="sin()"> sin </button> </td>
-		<td><button type="button" value="cos" onclick="cos()"> cos</button> </td>
-		<td><button type="button" value="tan" onclick="tan()"> tan </button> </td>
-		<td colspan="2">
-		 <button type="button" value="C" class="clear" onclick="remv()"> C </button>
-	 </td>
-	</tr>
-
-	<tr>
-		<td><button type="button" value="x^2" onclick="square()"> x<sup>2 </button> </td>
-		<td><button type="button" value="x^3" onclick="cubed()"> x<sup>3 </button> </td>
-		<td><button type="button" value="sqrt2" onclick="sqrt2()"> &radic; </button> </td>
-		<td><button type="button" value="sqrt3" onclick="sqrt3()"> &#8731; </button> </td>
-	</tr>
-
-	<tr>
-		<td><button type="button" value="1" onclick="number(value)"> 1 </button> </td>
-		<td><button type="button" value="2" onclick="number(value)"> 2 </button> </td>
-		<td><button type="button" value="3" onclick="number(value)"> 3 </button> </td>
-		<td><button type="button" value="BACKSPC" onclick="BACKSPC()"> < </button> </td>
-	</tr>
-
-	<tr>
-		<td><button type="button" value="4" onclick="number(value)"> 4</button> </td>
-		<td><button type="button" value="5" onclick="number(value)"> 5 </button> </td>
-		<td><button type="button" value="6" onclick="number(value)"> 6 </button> </td>
-		<td><button type="button" value="-" onclick="number(value)"> - </button> </td>
-	</tr>
-
-	<tr>
-		<td><button type="button" value="7" onclick="number(value)"> 7 </button> </td>
-		<td><button type="button" value="8" onclick="number(value)"> 8 </button> </td>
-		<td><button type="button" value="9" onclick="number(value)"> 9 </button> </td>
-		<td><button type="button" value="/" onclick="number(value)"> / </button> </td>
-	</tr>
-
-	<tr>
-		<td><button type="button" value="." onclick="number(value)"> . </button> </td>
-		<td><button type="button" value="0" onclick="number(value)"> 0 </button> </td>
-		<td><button type="button" value="*" onclick="number(value)"> * </button> </td>
-		<td><button type="button" value="%" onclick="number(value)"> % </button> </td>
-	</tr>
-
-	<tr>
-		<td colspan="2"> <button type="button" value="=" onclick="equal()" class="equal">=</button> </td>
-		<td><button type="button" value="+" onclick="number(value)"> + </button> </td>
-	</tr>
-
-</table>
-</form>
+    //arry innerHtml
+     arIH = ['sin' ,'cos' ,'tan'   ,'DRG'  ,'%'    ,'|x|',
+              'asin','acos','atan'  ,'e<sup>x</sup>','Ln' ,'log',
+              'sih' ,'cosh','tanh'  ,'(',')','←'    ,
+              'π'   ,'y<sup>x</sup>','√x'   ,'1/x'  ,'x²' ,'C',
+              '7'   ,'8'            , '9'   ,'/'    ,'X<sup class="fsup">→</sup>M',
+              '4'   ,'5'            , '6'   ,'×'    ,'RM',
+              '1'   ,'2'            , '3'   ,'-'    ,'M+',
+              '0'   ,'-/+'          , ','   ,'+'    ,'='   ];
+    
+   arCl.fill(c1);arCl.push(c1+' btn-primary2',c2,c2,c2,c3,c3,c2,c2,c2,c3,c3,c2,c2,c2,c3,c3,c2,c2,c2,c3,c3);
+   
+/* #################################################
+################################################# */
 
 
-<script>
-	function sin(){
-	document.calcul.result.value=Math.sin(document.calcul.result.value);
-	}
 
-	function cos(){
-	document.calcul.result.value=Math.cos(document.calcul.result.value);
-	}
+   /* aficher les divs*/
+   divBtn(0,24,'fdiv');
+   divBtn(24,44,'divNum');
+   
 
-	function tan(){
-	document.calcul.result.value=Math.tan(document.calcul.result.value);
-	}
+   /* //// function creat btn */
+function divBtn(i,fi,div) {
+    div= gebi(div);
+    for ( ;i < fi; i++) {
+        div.innerHTML+='<button id="b'+i+'"   onclick="'+arF[i]+
+          '"class="btn disabled '+arCl[i]+' "role="button" >'+arIH[i]+'</button>';
+      }
+}
 
-	function BACKSPC(){
-	var a = document.calcul.result.value;
-	document.calcul.result.value = a.substr(0, a.length-1);
-	}
 
-	function square(){
-	document.calcul.result.value = Math.pow(document.calcul.result.value, 2);
-	}
 
-	function cubed(){
-	document.calcul.result.value = Math.pow(document.calcul.result.value, 3);
-	}
+/* /////  sev mimoir on href \\\\\\\\\\ */
+if (location.href.indexOf('#mim') > -1) {
+    var nHref = location.href ,
+    inMim = nHref.indexOf('#mim=')+5;
+    mim = nHref.slice(inMim , nHref.length);
+    mim = mim.replace(/%C3%97/g, '×');
+    mim = mim.replace(/%E2%88%9A/g, '√'); 
+    gebi('mimoir').style.color = 'black';
+}
 
-	function sqrt2(){
-	document.calcul.result.value = Math.pow(document.calcul.result.value, 1/2);
-	}
+/*  jump functin */
 
-	function sqrt3(){
-	document.calcul.result.value = Math.pow(document.calcul.result.value, 1/3);
-	}
+function jump(){
+    var lineHeight = fichour.clientHeight / fichour.rows,
+        jump = 1000 * lineHeight;
+    fichour.scrollTop = jump;
+    
+}
+/*   functin of click keybord */
+addEventListener('keyup',   (event) => {
+    event.preventDefault();
+   
+    var kcod = event.keyCode-96;
+  // fichour.value = event.keyCode;
+    if ((kcod > -1) && (kcod < 10)) { fichour.value += kcod; }
+    if (kcod == 14) { addSymbF(','); }
+    if (event.keyCode == 107) { addSymbP('+'); }
+    if (event.keyCode == 109) { addSymbP('-'); }
+    if (event.keyCode == 106) { addSymbF('×'); }
+    if (event.keyCode == 111) { addSymbF('/'); }
+    if (event.keyCode == 219) { adCar(')'); }
+    if (event.keyCode == 53) { addFunc('('); }
+    if (event.keyCode == 8) { retour();}
+    if (event.keyCode == 13) { validat();}
+    calcule();
+    jump();     
+}
+)
 
-	function number(value){
-	document.calcul.result.value += value;
-	}
 
-	function remv(){
-	document.calcul.result.value=" ";
-	}
+/* ///// functin of click moss \\\\\\ */
+ 
+addEventListener('click',  (e)=> {
+    if ((e.target.id != 'result')) {
+      setTimeout(() => {calcule();}, 10); 
+    }  
+    
+   jump();
+})
 
-	function equal(){
-	document.calcul.result.value=eval(document.calcul.result.value);
-	}
-</script>
+/* /// Copier */
+function copier() {
+  if (result.value == 'The result copied') {result.value='';}
+
+  if (result.value.length>0) {
+    navigator.clipboard.writeText(result.value);
+      result.value = 'The result copied';
+  } 
+  
+}
+
+/* /// paste */
+function paste() { navigator.clipboard.readText().then((text)=>{ fichour.value +=text; })}
+
+/* ///racorce get elment */
+function gebi(param) { param = document.getElementById(param); return param;}
+ 
+/* //// Up result to fichour */
+function upRes() {if((result.value.length >0)&&result.value != 'The result copied'){
+   fichour.value = result.value;result.value ='';
+  }
+}
+
+/*  /////// add \\\\\\\\\ */
+function add(caracter) {//f1
+     fichour.value += caracter ;
+     
+}
+
+/*  /////add function\\\\\\ */
+function addFunc(param) { //f2
+    var input = fichour.value,
+        lenInbut = input.length,
+        carInput = input.charAt(lenInbut - 1),
+        symbols = '/*×-+^(';
+    if ((symbols.indexOf(carInput,0) > -1)||(lenInbut ==0)) {
+        input += param;
+    } else { addSymbF('×');input =fichour.value  + param;}
+    fichour.value = input;
+    
+}
+
+/*  /////add caracter\\\\\\ */
+function adCar(param) { //f3
+  
+    var input = fichour.value,
+        lenInbut = input.length,
+        carInput = input.charAt(lenInbut - 1),
+        symbols = '/*×-+(',
+        inputLef= input.replace(/\(/g, ''),
+        inpRi   = input.replace(/\)/g, '');
+    if ((symbols.indexOf(carInput, 0) == -1) && (lenInbut != 0)) {
+      if (param !=')') {
+        input +=  param;
+      }else if ((param==')')&&(inputLef.length < inpRi.length)) {
+        input +=  param;
+      }
+      
+    }
+    fichour.value = input;
+       
+}
+
+
+/* //////// add symbole × / */
+function addSymbF(param) {//f4
+    var input = fichour.value,
+        lenInbut = input.length - 1,
+        carInput = input.charAt(lenInbut),
+        carInput2 = input.charAt(lenInbut-1),
+        symbols = '/*×-+.,',
+        symbol2 = '(';
+    if ((lenInbut > -1) && (symbol2.indexOf(carInput, 0) == -1)) {
+        if (symbols.indexOf(carInput, 0) > -1) {
+            if ((symbol2.indexOf(carInput2, 0) == -1)) {
+                input = input.slice(0, lenInbut);
+                input += param;
+            } 
+        }else{input += param; }
+    } 
+    fichour.value = input;
+}
+
+/* /////// add Symbole + -  \\\\\\\ */
+function addSymbP(param) { //f5
+    var input   = fichour.value,
+        lenInbut = input.length - 1,
+        carInput = input.charAt(lenInbut),
+        plus     = '+' ,
+        symbols  = '/*×-+.,';
+    
+        if (symbols.indexOf(carInput,0) > -1) {
+            input = input.slice(0,lenInbut );
+            plus = '';
+        }
+        input += param; 
+    
+    fichour.value = input;
+    return plus
+}
+
+
+
+/* ///// retour \\\\\\\\\\\ */
+function retour() { //f6
+    var input = fichour.value,
+        lenInbut = input.length,
+        carInput = input.charAt(lenInbut - 1),
+        carInput2 = input.charAt(lenInbut - 2),
+        symbols = '/*×-+(1234567890.,';
+    
+    if (lenInbut > 0) {
+        if (((carInput == '(') || (carInput == '^')) && ((symbols.indexOf(carInput2, 0) < 0))) {
+            ////replace background-color: floralwhite;
+            input = input.replace(/abs\(/gi, 'd'); input = input.replace(/cosh\(/gi, 'f');
+            input = input.replace(/acos\(/gi, 'j'); input = input.replace(/cos\(/gi, 'k');
+            input = input.replace(/e\^\(/gi, 'm'); input = input.replace(/Ln\(/gi, 'p');
+            input = input.replace(/log\(/gi, 'q'); input = input.replace(/√\(/gi, 'r');
+            input = input.replace(/asin\(/gi, 'u'); input = input.replace(/sinh\(/gi, 'v');
+            input = input.replace(/sin\(/gi, 'w'); input = input.replace(/atan\(/gi, 'x');
+            input = input.replace(/tanh\(/gi, 'y'); input = input.replace(/tan\(/gi, 'z');
+            /////slice 
+            input = input.slice(0, (input.length - 1));
+            /////replace
+            input = input.replace(/d/g, 'abs('); input = input.replace(/k/g, 'cos(');
+            input = input.replace(/j/g, 'acos('); input = input.replace(/f/g, 'cosh(');
+            input = input.replace(/m/g, 'e^('); input = input.replace(/p/g, 'Ln(');
+            input = input.replace(/q/g, 'log('); input = input.replace(/r/g, '√(');
+            input = input.replace(/w/g, 'sin('); input = input.replace(/u/g, 'asin(');
+            input = input.replace(/v/g, 'sinh('); input = input.replace(/z/g, 'tan(');
+            input = input.replace(/x/g, 'atan('); input = input.replace(/y/g, 'tanh(');
+         
+        } else { input = input.slice(0, input.length - 1); }
+    }
+    fichour.value = input;
+    
+}
+
+/* //////clearing \\\\\\\\\\   */
+function clearing() { /* //f7  */ fichour.value = ''; }
+
+/* //////// replice drg ongle */
+function drgFun() { //f8
+    var drg = gebi('drg').innerHTML;
+    if (drg == 'deg') {gebi('drg').innerHTML = 'rad'; ongl = 1; 
+    } else if (drg == 'rad') { gebi('drg').innerHTML = 'grad'; ongl = 0.015707963267948967;
+    } else {gebi('drg').innerHTML = 'deg'; ongl = 0.017453292519943295;  
+    }
+}
+
+/* ////mimoiring number \\\\\\*/
+function save() {//f9
+    var nHref = location.href,
+        hach = 0 ;
+    
+    if (mim.length >0 ) {
+        var inNHref = nHref.indexOf('#mim=');
+        nHref = nHref.slice(0, inNHref);
+        mim = '';
+        hach = 1;
+        
+    }else if(location.href.charAt(nHref.length-1) =='#'){hach = 2;}
+
+    if(nHref.charAt(nHref.length-1) =='#'){nHref = nHref.slice(0, nHref.length-1);}
+
+    if (result.value.length > 0) {
+        mim =  result.value;
+        nHref+= '#mim='+ mim;
+        location.href = nHref; gebi('mimoir').style.color = 'black';
+    }else if (fichour.value.length >0) {
+        mim =  fichour.value ;
+        fichour.value = '';fichour.placeholder= "";
+        setTimeout(() => { 
+        fichour.value = mim;fichour.placeholder= "0";
+        }, 90);
+        nHref += '#mim='+ mim ;
+        location.href = nHref; gebi('mimoir').style.color = 'black';
+    }else if (fichour.value.length ==0) {
+        gebi('mimoir').style.color = 'floralwhite';
+        if(hach ==1){location.href = nHref+'#';}
+    }
+
+}
+
+/* /////// reteur de sive \\\\\\\\\ */
+function retSive() { //f10
+    if (mim.length > 0) {
+        fichour.value += mim;
+    }
+}
+
+
+/* ////// add save \\\\\\\\ */
+function addSave() { //f11
+    
+    if (mim.length == 0) {
+        save();
+    } else {
+        
+        var nHref = location.href,
+            inNHref = nHref.indexOf('#mim=')+1;
+        nHref = nHref.slice(0, inNHref);
+        if (result.value.length > 0) {
+            mim +=  addSymbP('+') + result.value;
+            nHref +='mim='+ mim;
+        } else {
+          var nMim =fichour.value;
+            mim += addSymbP('+')+ nMim; 
+            fichour.value = '';fichour.placeholder= "";
+        setTimeout(() => { //==== setTimeout(function(){code},time)
+        fichour.value = nMim;fichour.placeholder= "0";
+        }, 90);
+            nHref +='mim='+ mim;
+        }
+        location.href = nHref;
+    }
+}
+
+
+
+
+
+/*  ////////// equale \\\\\\\\\\\\\\ */
+///////////////////////////////////////
+///////////////////////////////////////
+
+function calcule() { //f12
+
+    
+
+    var input = fichour.value,
+        intLef = input.replace(/\(/g, ''),
+        intRi = input.replace(/\)/g, ''),
+        difRL = intRi.length - intLef.length;
+        for (let i = 0; i < difRL ; i++) {input += ')';}
+    
+    input = input.replace(/,/gi, '.');      input = input.replace(/×/gi, '*');
+    input = input.replace(/cosh/gi, 'f');   input = input.replace(/acos/gi, 'j');
+    input = input.replace(/cos\(/gi, 'k');  input = input.replace(/asin/gi, 'u');   
+    input = input.replace(/sinh/gi, 'v');   input = input.replace(/sin\(/gi, 'w');  
+    input = input.replace(/atan/gi, 'x');   input = input.replace(/tanh/gi, 'y');
+    input = input.replace(/tan\(/gi, 'z');
+    /////slice 
+    
+
+    input = input.replace(/abs/g, 'Math.abs');               input = input.replace(/k/g, 'Math.cos('+ongl+'*');
+    input = input.replace(/j/g, 1/ongl+'*Math.acos');        input = input.replace(/f/g, 'Math.cosh');
+    input = input.replace(/e\^\(/g, '2.718281828459045**('); input = input.replace(/log/g, 'Math.log10');
+    input = input.replace(/Ln/g, 'Math.log');                input = input.replace(/√/g, 'Math.sqrt');
+    input = input.replace(/w/g, 'Math.sin('+ongl+'*');       input = input.replace(/u/g, 1/ongl+'*Math.asin');
+    input = input.replace(/v/g, 'Math.sinh');                input = input.replace(/z/g, 'Math.tan('+ongl+'*');
+    input = input.replace(/x/g, 1/ongl+'*Math.atan');        input = input.replace(/y/g, 'Math.tanh');
+    input = input.replace(/\^/g, '**');                      input = input.replace(/²/g, '**2');
+
+
+/* /////// result */
+        result.value = '';
+      if (input.length >0) {
+    
+      try {
+        input = eval(input);
+        input = input.toFixed(10) ;input = 1*input;
+        result.style.color = 'rgb(14, 66, 20)'; 
+        if ((input != fichour.value)&&(!isNaN(input))) {result.value = input; } 
+        
+      } catch{}
+    }
+     
+ }
+      </script>
 </body>
 </html>
